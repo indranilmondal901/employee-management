@@ -20,6 +20,29 @@ A responsive and user-friendly Employee Management dashboard built using React, 
 ```bash
 git clone 
 cd employee-management
+```
+### 2. Install Dependencies
+npm install
+# or
+yarn install
+
+### 3. Configure Clerk
+VITE_CLERK_PUBLISHABLE_KEY=pk_test_**********
+
+#### 4. Configure EmailJS
+VITE_EMAILJS_SERVICE_ID=service_**
+VITE_EMAILJS_TEMPLATE_ID=template_**
+VITE_EMAILJS_USER_ID=I**
+
+### 🔐 Environment Setup Note
+
+I’ve already included the necessary `.env` variables to help you run the project locally.  
+However, for public repositories, environment keys may sometimes get invalidated automatically.  
+If you encounter any issues with Clerk authentication:
+
+- Follow the environment setup steps mentioned above to create new keys, **or**
+- Reach out to me for assistance.
+
 
 ![image](https://github.com/user-attachments/assets/66896775-38c5-4974-a56d-b065690865eb)
 
