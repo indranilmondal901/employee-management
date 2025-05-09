@@ -1,6 +1,7 @@
 # Employee Management Dashboard
 
 A responsive and user-friendly Employee Management dashboard built using React, Clerk for authentication, and AG Grid for employee data display and filtering.
+![image](https://github.com/user-attachments/assets/66896775-38c5-4974-a56d-b065690865eb)
 
 ## Features
 
@@ -48,11 +49,93 @@ If you encounter any issues with Clerk authentication:
 - Reach out to me for assistance.
 
 
-![image](https://github.com/user-attachments/assets/66896775-38c5-4974-a56d-b065690865eb)
+## How I Approached the Task
 
+### Project Structure & Planning
 
+I began by thoroughly reviewing the project requirements, tools, and library recommendations. Then, I mapped out a modular project structure to keep concerns separated and components reusable. Key directories like `components`, `hooks`, `pages`, and `utils` were set up early to streamline development.
 
+### Step-by-Step Execution
 
+1. **Clerk Authentication**  
+   Integrated Clerk to ensure only authenticated users can access the dashboard. This was handled at the routing level using `<RedirectToSignIn />` for unauthorized access.
+
+2. **Form Creation with Validation**  
+   Built the employee form using **React Hook Form** combined with **Zod** for schema-based validation. The form includes fields for name, email, phone, role, and joining date, styled using **ShadCN UI** components.
+
+3. **Displaying Data with AG Grid**  
+   Once an employee is added via the form, their details are shown in an interactive table using **AG Grid**, complete with sorting and filtering features.
+
+4. **Styling with ShadCN UI**  
+   For a consistent, modern design, all UI elements like inputs, buttons, selects, and layout wrappers use ShadCN UI components. This greatly accelerated development while maintaining a professional look.
+
+5. **Data Persistence Using localStorage**  
+   Since the scope didn’t require a backend, I chose **localStorage** to persist employee data across page refreshes. A custom hook, `useEmployeeData.ts`, handles the logic for reading and writing employee data.
+
+6. **Bonus: Email Trigger**  
+   After successful form submission, an email is sent using `sendEmail.ts`. This provides real-time notification capability and showcases integration with third-party services.
+
+---
+
+## Data Persistence Strategy
+
+I chose `localStorage` for data persistence as it:
+- Is simple and fast to implement for a demo app.
+- Requires no backend setup.
+- Persists data across sessions.
+
+Data is saved using:
+```ts
+localStorage.setItem('employees', JSON.stringify(data));
+const data = JSON.parse(localStorage.getItem('employees') || '[]');
+```
+
+## 💡 Ideas for Extending Persistence
+
+To scale the application beyond a simple demo and prepare it for production use, the following enhancements are recommended:
+
+### 1. 🗄️ MongoDB with Express Backend
+Build a RESTful API using **Node.js** and **Express**, and connect it to a **MongoDB** database. This approach will:
+- Allow secure, centralized data storage.
+- Enable CRUD operations via HTTP endpoints.
+- Make integration with future services (e.g., admin dashboard, analytics) easier.
+
+## 📁 Project Structure
+```
+employee-management-app/
+│
+├── public/
+│ └── index.html # HTML entry point
+│
+├── src/
+│ ├── assets
+│ ├── components/ # Reusable UI components
+│ │ ├── EmployeeForm.tsx # Form component to add new employees
+│ │ ├── EmployeeGrid.tsx # Grid component to list employees using AG Grid
+│ │ └── Header.tsx # Application header
+│ │
+│ ├── hooks/ # Custom React hooks
+│ │ └── useEmployeeData.ts # Hook to handle localStorage logic for employees
+│ │
+│ ├── pages/ # Route-level pages
+│ │ ├── Dashboard.tsx # Dashboard showing the form and grid
+│ │ └── Login.tsx # Login screen using Clerk
+│ │
+│ ├── types/ # TypeScript type definitions
+│ │ └── employee.d.ts # Employee data type
+│ │
+│ ├── utils
+│ │ └── sendEmail.ts # Bonus feature: Email sending logic
+│ │
+│ ├── App.tsx # Main application routes
+│ ├── main.tsx # React entry point
+│ ├── index.css # Global styles
+│
+├── .env # Environment variables (Clerk keys, EMAILJS Keys)
+├── package.json 
+├── tsconfig.json # TypeScript configuration
+└── README.md # Project documentation
+```
 
 
 
