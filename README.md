@@ -27,12 +27,16 @@ npm install
 yarn install
 
 ### 3. Configure Clerk
+```
 VITE_CLERK_PUBLISHABLE_KEY=pk_test_**********
+```
 
 #### 4. Configure EmailJS
+```
 VITE_EMAILJS_SERVICE_ID=service_**
 VITE_EMAILJS_TEMPLATE_ID=template_**
 VITE_EMAILJS_USER_ID=I**
+```
 
 ### 🔐 Environment Setup Note
 
