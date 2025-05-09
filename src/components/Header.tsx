@@ -1,4 +1,3 @@
-import React from "react";
 import { SignOutButton } from "@clerk/clerk-react";
 
 const Header = () => {
