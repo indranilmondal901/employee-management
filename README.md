@@ -2,7 +2,7 @@
 
 A responsive and user-friendly Employee Management dashboard built using React, Clerk for authentication, and AG Grid for employee data display and filtering.
 
-## ✨ Features
+## Features
 
 - Secure Sign In / Sign Out using Clerk
 - Add new employees via a dynamic form
@@ -13,13 +13,15 @@ A responsive and user-friendly Employee Management dashboard built using React, 
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 
 ```bash
 git clone 
 cd employee-management
+
+![image](https://github.com/user-attachments/assets/66896775-38c5-4974-a56d-b065690865eb)
 
 
 
